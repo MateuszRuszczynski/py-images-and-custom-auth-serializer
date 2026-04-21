@@ -46,7 +46,9 @@ class AuthTokenSerializer(serializers.Serializer):
             if not user:
                 raise serializers.ValidationError(_("Login data incorrect"))
         else:
-            raise serializers.ValidationError(_("Must provide email and password"))
+            raise serializers.ValidationError(_(
+                "Must provide email and password"
+            ))
 
         attrs["user"] = user
         return attrs
